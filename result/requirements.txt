@@ -1,0 +1,7 @@
+pymongo==3.6.0
+psycopg2-binary==2.9.5
+clickhouse-driver==0.2.5
+faker==18.3.1
+pandas
+apache-airflow-providers-mongo==3.1.0
+apache-airflow-providers-postgres==5.5.0
