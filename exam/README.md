@@ -58,19 +58,17 @@
     		DataprocCreateClusterOperator,
     		DataprocCreatePysparkJobOperator,
     		DataprocDeleteClusterOperator,
-)
-```
+		)```
 # Данные инфраструктуры
-```
-YC_DP_AZ = 'ru-central1-a'
-YC_DP_SSH_PUBLIC_KEY = 'ssh-rsa bBzQ+PqXVa0KyLSDTeSan+N+2HZkRY3rt+4/8/2GtgQ Иван@DESKTOP-53I2BCO'
-YC_DP_SUBNET_ID = 'e2l0d3q9vj7r5h6g8f2k'
-YC_DP_SA_ID = 'aje12345qwerty67890'
-YC_DP_METASTORE_URI = '192.168.1.100'
-YC_BUCKET = 'tumkabacket'
+	```YC_DP_AZ = 'ru-central1-a'
+	YC_DP_SSH_PUBLIC_KEY = 'ssh-rsa bBzQ+PqXVa0KyLSDTeSan+N+2HZkRY3rt+4/8/2GtgQ Иван@DESKTOP-53I2BCO'
+	YC_DP_SUBNET_ID = 'e2l0d3q9vj7r5h6g8f2k'
+	YC_DP_SA_ID = 'aje12345qwerty67890'
+	YC_DP_METASTORE_URI = '192.168.1.100'
+	YC_BUCKET = 'tumkabacket' ```
 
 # Настройки DAG
-with DAG(
+```with DAG(
         'DATA_INGEST',
         schedule_interval='@hourly',
         tags=['data-processing-and-airflow'],
@@ -117,7 +115,7 @@ with DAG(
     )
 
     # Формирование DAG
-    create_spark_cluster >> poke_spark_processing >> delete_spark_cluster
+    create_spark_cluster >> poke_spark_processing >> delete_spark_cluster```
 
 Далее выполняем следующие действия:
 - Приведение типов всех полей (`Integer`, `Boolean`, `Date`, `String`)
@@ -125,7 +123,7 @@ with DAG(
 - Преобразование transaction_date и membership_expire_date в DateType
 - Результат сохраняется в формате Parquet:
 	### clean-data.py
-	```python
+	python
 		from pyspark.sql import SparkSession
 		from pyspark.sql.functions import col, to_date
 		from pyspark.sql.types import IntegerType, StringType, BooleanType
@@ -175,6 +173,4 @@ with DAG(
 		    print("❌ Общая ошибка:", e)
 	
 		spark.stop()
- 	```
 ```
-
