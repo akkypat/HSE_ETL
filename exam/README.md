@@ -100,7 +100,7 @@
 				datanode_count=0,
 				properties={
 					'spark:spark.hive.metastore.uris': f'thrift://{YC_DP_METASTORE_URI}:9083',
-				},
+					},
 				)
 
 				# 2 этап
