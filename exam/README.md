@@ -59,7 +59,7 @@
     		DataprocCreatePysparkJobOperator,
     		DataprocDeleteClusterOperator,
 		)
-# Данные инфраструктуры
+- Данные инфраструктуры
 	YC_DP_AZ = 'ru-central1-a'
 	YC_DP_SSH_PUBLIC_KEY = 'ssh-rsa bBzQ+PqXVa0KyLSDTeSan+N+2HZkRY3rt+4/8/2GtgQ Иван@DESKTOP-53I2BCO'
 	YC_DP_SUBNET_ID = 'e2l0d3q9vj7r5h6g8f2k'
@@ -67,7 +67,7 @@
 	YC_DP_METASTORE_URI = '192.168.1.100'
 	YC_BUCKET = 'tumkabacket' 
 
-# Настройки DAG
+- Настройки DAG
 	with DAG(
 			'DATA_INGEST',
 			schedule_interval='@hourly',
@@ -122,7 +122,7 @@
 	- Удаление пустых строк
 	- Преобразование transaction_date и membership_expire_date в DateType
 	- Результат сохраняется в формате Parquet:
-		### clean-data.py
+	### clean-data.py
 		python
 		from pyspark.sql import SparkSession
 		from pyspark.sql.functions import col, to_date
@@ -173,4 +173,3 @@
 			print("❌ Общая ошибка:", e)
 		
 		spark.stop()
-	```
